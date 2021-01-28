@@ -253,9 +253,9 @@ class ANIMAIDE_PT_frame_bookmarks:
         col.operator('anim.aide_delete_bookmark', text='', emboss=True, icon='REMOVE')
         col.separator()
         op = col.operator('anim.aide_push_bookmark', text='', emboss=True, icon='EVENT_L')
-        op.side = 'L'
+        op.name = '_L'
         op = col.operator('anim.aide_push_bookmark', text='', emboss=True, icon='EVENT_R')
-        op.side = 'R'
+        op.name = '_R'
 
 
 class ANIMAIDE_PT_frame_bookmarks_ge(Panel, ANIMAIDE_PT_frame_bookmarks):

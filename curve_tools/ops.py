@@ -747,7 +747,7 @@ class ANIMAIDE_OT_push_bookmark(Operator):
     bl_label = "Push Bookmark"
     bl_options = {'REGISTER'}
 
-    side: StringProperty()
+    name: StringProperty()
 
     @classmethod
     def poll(cls, context):
@@ -762,7 +762,7 @@ class ANIMAIDE_OT_push_bookmark(Operator):
         context.scene.frame_current = frame
 
         if tool.use_markers:
-            utils.add_marker(name='', frame=frame)
+            utils.add_marker(name=self.name, frame=frame)
 
         return {'FINISHED'}
 
