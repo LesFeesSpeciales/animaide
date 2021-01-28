@@ -53,14 +53,13 @@ def update_selector(self, context):
 def toggle_tool_markers(self, context):
     if self.use_markers:
         if self.left_ref_frame > 0:
-            utils.add_marker(name='', side='L', frame=self.left_ref_frame)
+            utils.add_marker(name='_L', frame=self.left_ref_frame)
 
         if self.right_ref_frame > 0:
-            utils.add_marker(name='', side='R', frame=self.right_ref_frame)
+            utils.add_marker(name='_R', frame=self.right_ref_frame)
     else:
-        for side in ['L', 'R']:
-            utils.remove_marker(
-                side=side)
+        for name in ['_L', '_R']:
+            utils.remove_marker(name=name)
 
     return
 

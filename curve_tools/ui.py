@@ -53,7 +53,7 @@ def reference_frames(context, layout, expand):
         # left reference botton
         col = row.column(align=False)
         left_ref_frame = col.operator("anim.aide_get_ref_frame", text=str(left_frame), emboss=True)
-        left_ref_frame.side = 'L'
+        left_ref_frame.name = '_L'
 
         col = row.column(align=False)
         col.scale_x = .3
@@ -62,7 +62,7 @@ def reference_frames(context, layout, expand):
         # right reference button
         col = row.column(align=False)
         right_ref_frame = col.operator("anim.aide_get_ref_frame", text=str(right_frame), emboss=True)
-        right_ref_frame.side = 'R'
+        right_ref_frame.name = '_R'
 
         # layout.prop(tool, 'use_markers', text='Use markers', toggle=False)
 

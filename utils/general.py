@@ -65,7 +65,7 @@ def toggle(to_toggle, value_a, value_b):
         return value_a
 
 
-def add_marker(name, side, frame=0, overwrite=True):
+def add_marker(name, frame=0, overwrite=True):
     """add reference frames marker"""
 
     animaide = bpy.context.scene.animaide
@@ -74,14 +74,10 @@ def add_marker(name, side, frame=0, overwrite=True):
     if not use_markers:
         return
 
-    name = f'{side}{name}'
-
     markers = bpy.context.scene.timeline_markers
     if overwrite:
-        remove_marker(side)
-    marker = markers.new(name=name, frame=frame)
-    marker['side'] = side
-    return marker
+        remove_marker(name)
+    return markers.new(name=name, frame=frame)
 
 
 def modify_marker(marker, name='SAME', frame='SAME'):
@@ -92,13 +88,13 @@ def modify_marker(marker, name='SAME', frame='SAME'):
         marker.frame = frame
 
 
-def remove_marker(side):
+def remove_marker(name):
     """Removes reference frame markers"""
 
     markers = bpy.context.scene.timeline_markers
 
     for marker in markers:
-        if marker.get('side') == side:
+        if marker.name == name:
             markers.remove(marker)
     return
 

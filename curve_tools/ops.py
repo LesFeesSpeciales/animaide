@@ -762,7 +762,7 @@ class ANIMAIDE_OT_push_bookmark(Operator):
         context.scene.frame_current = frame
 
         if tool.use_markers:
-            utils.add_marker(name='', side=self.side, frame=frame)
+            utils.add_marker(name='', frame=frame)
 
         return {'FINISHED'}
 
@@ -776,7 +776,7 @@ class ANIMAIDE_OT_get_ref_frame(Operator):
     bl_label = "Get Reference Frames"
     bl_options = {'REGISTER'}
 
-    side: StringProperty()
+    name: StringProperty()
 
     @classmethod
     def poll(cls, context):
@@ -790,14 +790,14 @@ class ANIMAIDE_OT_get_ref_frame(Operator):
 
         current_frame = bpy.context.scene.frame_current
 
-        if self.side == 'L':
+        if self.name == '_L':
             tool.left_ref_frame = current_frame
 
-        if self.side == 'R':
+        if self.name == '_R':
             tool.right_ref_frame = current_frame
 
         if tool.use_markers:
-            utils.add_marker(name='', side=self.side, frame=current_frame)
+            utils.add_marker(name=self.name, frame=current_frame)
 
         return {'FINISHED'}
 

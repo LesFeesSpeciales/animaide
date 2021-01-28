@@ -311,7 +311,6 @@ def get_globals():
                     index = utils.key.on_current_frame(fcurve)
                     if index is not None:
                         keyframes = [index]
-                        # left_neighbor, right_neighbor = utils.key.get_frame_neighbors(fcurve, frame=None, clamped=False)
                 elif key.select_control_point:
                     # stores only selected keys
                     keyframes.append(key_index)
@@ -417,9 +416,9 @@ def set_ref_marker(context):
         left = 0
         right = 0
         for marker in markers:
-            if marker.get('side') == 'L':
+            if marker.name == '_L':
                 left = marker.frame
-            elif marker.get('side') == 'R':
+            elif marker.name == '_R':
                 right = marker.frame
     else:
         left = tool.left_ref_frame
