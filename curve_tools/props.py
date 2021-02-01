@@ -79,13 +79,13 @@ class AnimAideClone(PropertyGroup):
     cycle_before: EnumProperty(
         items=cycle_options,
         name='Before',
-        default='NONE'
+        default='REPEAT_OFFSET'
     )
 
     cycle_after: EnumProperty(
         items=cycle_options,
         name='Before',
-        default='NONE'
+        default='REPEAT_OFFSET'
     )
 
 
